@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymGo - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .auth-container {
+            width: 90%;
+            max-width: 420px;
+            margin: 70px auto;
+            padding: 30px;
+            background: #1c1c1c;
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px #0005;
+        }
+        .auth-container h1 {
+            text-align: center;
+            color: #a3e635;
+        }
+        .auth-container label {
+            display: block;
+            margin-top: 18px;
+        }
+        .auth-container input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin-top: 7px;
+            border: 1px solid #555;
+            border-radius: 7px;
+        }
+        .auth-container button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 22px;
+            background: #a3e635;
+            border: none;
+            border-radius: 7px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .auth-container p {
+            text-align: center;
+        }
+        .auth-container a {
+            color: #a3e635;
+        }
+        #message {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="auth-container">
+        <h1>GymGo</h1>
+        <h2>Welcome Back!</h2>
+        <p>Sign in to continue your fitness journey.</p>
+
+        <form id="loginForm">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email"
+                   placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password"
+                   placeholder="Enter your password" required>
+
+            <button type="submit">Sign In</button>
+            <p id="message" role="status" aria-live="polite"></p>
+        </form>
+
+        <p>Don't have an account?
+            <a href="register.html">Create Account</a>
+        </p>
+
+        <p><a href="index.html">Back to Home</a></p>
+    </main>
+
+    <script>
+        document.getElementById("loginForm")
+            .addEventListener("submit", async function(event) {
+                event.preventDefault();
+
+                const message = document.getElementById("message");
+                const button = this.querySelector("button");
+
+                message.textContent = "Signing in...";
+                button.disabled = true;
+
+                try {
+                    const response = await fetch("/api/auth/login", {
+                        method: "POST",
+                        credentials: "same-origin",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            email: document.getElementById("email").value.trim(),
+                            password: document.getElementById("password").value
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(data.message || "Login failed.");
+                    }
+
+                    message.textContent = "Login successful!";
+                    window.location.href = "index.html";
+
+                } catch (error) {
+                    message.textContent = error.message ||
+                        "Unable to connect to the server.";
+                } finally {
+                    button.disabled = false;
+                }
+            });
+    </script>
+
+</body>
+</html>

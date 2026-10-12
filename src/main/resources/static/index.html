@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymGo Fitness</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .payment-section {
+            padding: 45px 20px;
+            text-align: center;
+            background: #f3f7f4;
+            font-family: Arial, sans-serif;
+        }
+
+        .payment-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 25px auto;
+        }
+
+        .payment-card, .payment-form {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 14px #00000012;
+        }
+
+        .payment-card h3 {
+            color: #176b45;
+        }
+
+        .price {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .price span {
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        .payment-card ul {
+            text-align: left;
+            line-height: 2;
+            padding-left: 20px;
+        }
+
+        .payment-card button, .payment-form button {
+            background: #176b45;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 18px;
+            cursor: pointer;
+        }
+
+        .payment-card button:hover, .payment-form button:hover {
+            background: #104d31;
+        }
+
+        .featured {
+            border: 2px solid #176b45;
+        }
+
+        .payment-form {
+            max-width: 500px;
+            margin: 30px auto;
+        }
+
+        .payment-form input {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 18px;
+            box-sizing: border-box;
+        }
+
+        .fitness-profile, .fitness-progress {
+            max-width: 650px;
+            margin: 25px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px #00000015;
+        }
+
+        .fitness-profile form,
+        .fitness-progress form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .fitness-profile input,
+        .fitness-profile select,
+        .fitness-progress input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 11px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+        }
+
+        .fitness-profile button,
+        .fitness-progress button {
+            padding: 12px;
+            margin-top: 8px;
+            background: #176b45;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        #fitnessHistory li {
+            margin: 12px 0;
+        }
+
+        @media (max-width: 600px) {
+            .fitness-profile, .fitness-progress {
+                margin: 15px;
+                padding: 18px;
+            }
+
+            .navbar {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+	<h1>GymGo</h1>
+
+    	<nav class="navbar">
+		    <a href="#home">Home</a>
+		    <a href="#fitnessProfile">Fitness Profile</a>
+		    <a href="#classes">Book a Class</a>
+		    <a href="#fitnessProgress">Track Progress</a>
+		    <a href="workout-guide.html">Workout &amp; Diet Guide</a>
+		    <a href="#payment">Membership &amp; Payment</a>
+		</nav>
+</header>
+
+<main>
+
+    <!-- 1. FITNESS PROFILE -->
+    <section id="fitnessProfile" class="fitness-profile">
+        <h2>Create Your Fitness Profile</h2>
+        <p>Personalize your GymGo workout and nutrition plans.</p>
+
+        <form id="fitnessProfileForm">
+			<label for="fitnessProgressEmail">Registered Email</label>
+			<input type="email" id="fitnessProgressEmail"
+			       placeholder="Enter your registered email" required>
+            <label for="gender">Gender</label>
+            <select id="gender" required>
+                <option value="">Select gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+                <option value="Prefer not to say">Prefer not to say</option>
+            </select>
+
+            <label for="age">Age</label>
+            <input type="number" id="age" min="13" max="100"
+                   placeholder="Enter your age" required>
+
+            <label for="heightCm">Height (cm)</label>
+            <input type="number" id="heightCm" min="50" max="250"
+                   placeholder="Enter your height">
+
+            <label for="currentWeight">Current weight (kg)</label>
+            <input type="number" id="currentWeight" min="1" max="500"
+                   step="0.1" placeholder="Enter your weight" required>
+
+            <label for="targetWeight">Target weight (kg)</label>
+            <input type="number" id="targetWeight" min="1" max="500"
+                   step="0.1" placeholder="Enter target weight">
+
+            <label for="fitnessGoal">Fitness goal</label>
+            <select id="fitnessGoal" required>
+                <option value="">Choose your goal</option>
+                <option value="Muscle Gain">Muscle Gain</option>
+                <option value="Weight Gain">Weight Gain</option>
+                <option value="Weight Loss">Weight Loss</option>
+                <option value="General Fitness">General Fitness</option>
+                <option value="Healthy Lifestyle">Healthy Lifestyle</option>
+            </select>
+
+            <button type="submit">Save Fitness Profile</button>
+            <p id="profileMessage" role="status"></p>
+        </form>
+    </section>
+
+    <!-- 2. HOME / WELCOME -->
+    <section id="home" class="hero">
+        <h2>Your Fitness Journey Starts Here!</h2>
+        <p>Train. Track. Eat. Be Better.</p>
+        <a href="#classes" class="button">Explore Classes</a>
+    </section>
+
+    <!-- 3. AVAILABLE CLASSES -->
+    <section id="classes">
+        <h2>Available Fitness Classes</h2>
+        <div id="classList">Loading classes...</div>
+    </section>
+
+    <!-- 4. CLASS BOOKING -->
+    <section id="booking">
+        <h2>Book a Fitness Class</h2>
+
+        <form id="bookingForm">
+            <input name="memberName" placeholder="Full Name"
+                   required minlength="2">
+
+            <input name="memberEmail" type="email"
+                   placeholder="Email Address" required>
+
+            <label for="classSelect">Choose a class</label>
+            <select name="classId" id="classSelect" required>
+                <option value="">Select a class</option>
+            </select>
+
+            <h3>Choose Your Membership</h3>
+
+            <select name="membershipPlan" id="membershipPlan" required>
+                <option value="">Select a membership plan</option>
+                <option value="DAILY">Daily Pass - ₹50</option>
+                <option value="MONTHLY">Monthly Subscription - ₹999</option>
+                <option value="YEARLY">Yearly Subscription - ₹9,999</option>
+            </select>
+
+            <div id="membershipPayment" hidden>
+                <h3>Payment Details</h3>
+                <p>Selected Plan: <strong id="planName"></strong></p>
+                <p>Amount: <strong id="planPrice"></strong></p>
+                <p id="planDescription"></p>
+            </div>
+
+            <button type="submit">Book Now</button>
+        </form>
+
+        <p id="bookingMessage" role="status"></p>
+    </section>
+
+    <!-- 5. NEW FITNESS PROGRESS TRACKER -->
+    <section id="fitnessProgress" class="fitness-progress">
+        <h2>My Fitness Progress</h2>
+        <p>Record your daily activity and track your progress.</p>
+
+        <form id="fitnessProgressForm">
+            <label for="fitnessProgressUserId">Registered User ID</label>
+            <input type="number" id="fitnessProgressUserId"
+                   min="1" placeholder="Enter your user ID" required>
+
+            <label for="fitnessProgressWeight">Current Weight (kg)</label>
+            <input type="number" id="fitnessProgressWeight"
+                   min="1" max="500" step="0.1"
+                   placeholder="Enter your weight" required>
+
+            <label for="fitnessProgressSteps">Steps Walked</label>
+            <input type="number" id="fitnessProgressSteps"
+                   min="0" placeholder="Today's steps">
+
+            <label for="fitnessProgressCalories">Calories Burned</label>
+            <input type="number" id="fitnessProgressCalories"
+                   min="0" placeholder="Calories burned">
+
+            <label for="fitnessProgressWater">Water Intake (ml)</label>
+            <input type="number" id="fitnessProgressWater"
+                   min="0" placeholder="Water consumed in ml">
+
+            <button type="submit">Save My Progress</button>
+        </form>
+
+        <p id="fitnessProgressMessage" role="status"></p>
+
+        <h3>My Previous Progress</h3>
+        <button type="button" id="loadFitnessHistory">
+            View My Progress
+        </button>
+
+        <ul id="fitnessHistory"></ul>
+    </section>
+
+    <!-- 6. EXISTING PROGRESS FORM
+         Kept with its original ID for compatibility with app.js. -->
+    <section id="progress">
+        <h2>Track Your Progress</h2>
+
+        <form id="progressForm">
+            <input name="memberEmail" type="email"
+                   placeholder="Email Address" required>
+
+            <input name="weightKg" type="number"
+                   placeholder="Weight (kg)" min="1" required>
+
+            <input name="steps" type="number"
+                   placeholder="Daily Steps" min="0" required>
+
+            <input name="workoutMinutes" type="number"
+                   placeholder="Workout Minutes" min="0" required>
+
+            <input name="note" placeholder="Notes (optional)">
+
+            <button type="submit">Save Progress</button>
+        </form>
+
+        <p id="progressMessage" role="status"></p>
+    </section>
+
+    <!-- 7. MEMBERSHIP AND PAYMENT DEMO -->
+    <section id="payment" class="payment-section">
+        <h2>GymGo Membership Plans</h2>
+        <p>Choose a plan that fits your fitness journey.</p>
+
+        <div class="payment-container">
+            <div class="payment-card">
+                <h3>Daily Pass</h3>
+                <p class="price">₹50 <span>/ day</span></p>
+                <ul>
+                    <li>Access for one day</li>
+                    <li>Join available gym classes</li>
+                    <li>Track your fitness progress</li>
+                </ul>
+                <button type="button"
+                        onclick="selectPlan('Daily Pass', 50)">
+                    Choose Daily
+                </button>
+            </div>
+
+            <div class="payment-card featured">
+                <h3>Monthly Plan</h3>
+                <p class="price">₹999 <span>/ month</span></p>
+                <ul>
+                    <li>30-day membership</li>
+                    <li>Regular workout sessions</li>
+                    <li>Fitness progress tracking</li>
+                </ul>
+                <button type="button"
+                        onclick="selectPlan('Monthly Plan', 999)">
+                    Choose Monthly
+                </button>
+            </div>
+
+            <div class="payment-card">
+                <h3>Yearly Plan</h3>
+                <p class="price">₹9,999 <span>/ year</span></p>
+                <ul>
+                    <li>365-day membership</li>
+                    <li>Long-term fitness tracking</li>
+                    <li>Consistent workout planning</li>
+                </ul>
+                <button type="button"
+                        onclick="selectPlan('Yearly Plan', 9999)">
+                    Choose Yearly
+                </button>
+            </div>
+        </div>
+
+        <div class="payment-form">
+            <h3>Selected Membership</h3>
+
+            <p>Plan: <strong id="selectedPlan">Not selected</strong></p>
+            <p>Amount: <strong id="selectedAmount">₹0</strong></p>
+
+            <label for="paymentEmail">Member Email</label>
+            <input type="email" id="paymentEmail"
+                   placeholder="Enter your registered email" required>
+
+            <button type="button" onclick="continuePayment()">
+                Continue to Payment
+            </button>
+
+            <p id="paymentMessage" role="status"></p>
+            <small>Demo only: no money is charged.</small>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>GymGo | Fitness &amp; Wellness Platform</p>
+</footer>
+
+<!-- Load your existing JavaScript once -->
+<script src="app.js"></script>
+
+<script>
+    // Membership plan selection (demo only)
+    let chosenPlan = "";
+    let chosenAmount = 0;
+
+    function selectPlan(plan, amount) {
+        chosenPlan = plan;
+        chosenAmount = amount;
+
+        document.getElementById("selectedPlan").textContent = plan;
+        document.getElementById("selectedAmount").textContent =
+            "₹" + amount.toLocaleString("en-IN");
+
+        document.getElementById("paymentMessage").textContent =
+            "Plan selected. Enter your email to continue.";
+    }
+
+    function continuePayment() {
+        const email = document.getElementById("paymentEmail").value.trim();
+        const message = document.getElementById("paymentMessage");
+
+        if (!chosenPlan) {
+            message.textContent = "Please choose a membership plan first.";
+            return;
+        }
+
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            message.textContent = "Please enter a valid email address.";
+            return;
+        }
+
+        message.textContent =
+            chosenPlan + " selected for ₹" +
+            chosenAmount.toLocaleString("en-IN") +
+            ". Online payment is not connected yet.";
+    }
+
+    // Show membership information in the booking form
+    const membershipPlan = document.getElementById("membershipPlan");
+
+    if (membershipPlan) {
+        membershipPlan.addEventListener("change", function () {
+            const payment = document.getElementById("membershipPayment");
+            const planName = document.getElementById("planName");
+            const planPrice = document.getElementById("planPrice");
+            const description = document.getElementById("planDescription");
+
+            const plans = {
+                DAILY: {
+                    name: "Daily Pass",
+                    price: "₹50",
+                    description: "Gym access for one day."
+                },
+                MONTHLY: {
+                    name: "Monthly Subscription",
+                    price: "₹999",
+                    description: "Gym membership for one month."
+                },
+                YEARLY: {
+                    name: "Yearly Subscription",
+                    price: "₹9,999",
+                    description: "Gym membership for one year."
+                }
+            };
+
+            const selected = plans[this.value];
+
+            if (!selected) {
+                payment.hidden = true;
+                return;
+            }
+
+            planName.textContent = selected.name;
+            planPrice.textContent = selected.price;
+            description.textContent = selected.description;
+            payment.hidden = false;
+        });
+    }
+
+    // Save new fitness progress to the Spring Boot API
+    const fitnessProgressForm =
+        document.getElementById("fitnessProgressForm");
+
+    fitnessProgressForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const message =
+            document.getElementById("fitnessProgressMessage");
+        message.textContent = "Saving progress...";
+
+        const numberOrNull = (id) => {
+            const value = document.getElementById(id).value.trim();
+            return value === "" ? null : Number(value);
+        };
+
+		const progress = {
+		    memberEmail: document.getElementById("fitnessProgressEmail").value.trim(),
+		    weight: numberOrNull("fitnessProgressWeight"),
+		    steps: numberOrNull("fitnessProgressSteps"),
+		    caloriesBurned: numberOrNull("fitnessProgressCalories"),
+		    waterIntakeMl: numberOrNull("fitnessProgressWater")
+		};
+
+
+       
+        try {
+            const response = await fetch("/api/progress", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(progress)
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(errorText || "Could not save progress.");
+            }
+
+            message.textContent = "Fitness progress saved successfully!";
+        } catch (error) {
+            message.textContent =
+                "Could not save progress. Check that Spring Boot is running "
+                + "and the backend API is working. " + error.message;
+        }
+    });
+
+    // Load saved progress from the Spring Boot API
+    document.getElementById("loadFitnessHistory")
+        .addEventListener("click", async function () {
+			const email =
+			    document.getElementById("fitnessProgressEmail").value.trim();
+            const history = document.getElementById("fitnessHistory");
+            const message =
+                document.getElementById("fitnessProgressMessage");
+
+				if (!email) {
+				    message.textContent = "Enter your registered email first.";
+				    return;
+				}
+
+            history.replaceChildren();
+            message.textContent = "Loading progress...";
+
+            try {
+                const response =
+				await fetch("/api/progress?email=" + encodeURIComponent(email));
+
+                if (!response.ok) {
+                    throw new Error("Could not load progress.");
+                }
+
+                const records = await response.json();
+
+                if (records.length === 0) {
+                    message.textContent = "No progress records found yet.";
+                    return;
+                }
+
+                records.forEach(function (record) {
+                    const item = document.createElement("li");
+                    item.textContent =
+                        "Date: " + (record.progressDate || "Not recorded")
+                        + " | Weight: " + (record.weight ?? "—") + " kg"
+                        + " | Steps: " + (record.steps ?? "—")
+                        + " | Calories: " + (record.caloriesBurned ?? "—")
+                        + " | Water: " + (record.waterIntakeMl ?? "—") + " ml";
+
+                    history.appendChild(item);
+                });
+
+                message.textContent = "Progress history loaded.";
+            } catch (error) {
+                message.textContent =
+                    "Could not load history. Check the backend API.";
+            }
+        });
+</script>
+
+</body>
+</html>

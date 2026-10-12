@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymGo | Workout & Diet Guide</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7f6;
+            color: #222;
+            line-height: 1.7;
+        }
+
+        header {
+            background: #142d25;
+            color: white;
+            padding: 25px 8%;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #7cf2a5;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 18px;
+        }
+
+        .hero {
+            background: #1d4033;
+            color: white;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 25px 18px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #00000012;
+        }
+
+        .card h3 {
+            color: #187447;
+            margin-top: 0;
+        }
+
+        .card h4 {
+            margin-bottom: 5px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e1f7e9;
+            color: #17643a;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 13px;
+        }
+
+        .note {
+            background: #e7f4ec;
+            padding: 18px;
+            border-left: 5px solid #218653;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        footer {
+            background: #142d25;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .hero h2 {
+                font-size: 25px;
+            }
+
+            header {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>GymGo</h1>
+    <p>Your Fitness, Your Journey</p>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/workout-guide.html">Workout & Diet Guide</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Workout & Clean Diet Guide</h2>
+    <p>Learn how to exercise correctly, eat balanced meals,
+       and build healthy habits every day.</p>
+</section>
+
+<main class="container">
+
+    <h2>Workout Library</h2>
+    <p>Choose exercises according to your fitness level.
+       Learn the correct technique and allow your body time to recover.</p>
+
+    <div class="cards">
+
+        <article class="card">
+            <span class="tag">Upper Body</span>
+            <h3>1. Chest Workout</h3>
+            <h4>Exercises</h4>
+            <p>Push-ups, bench press, incline dumbbell press,
+               and chest fly.</p>
+            <h4>How to do it</h4>
+            <p>Keep your body stable, lower the weight under control,
+               and push smoothly. For push-ups, keep your body in
+               a straight line and lower your chest toward the floor.</p>
+            <h4>Benefits</h4>
+            <p>Strengthens the chest, shoulders, and triceps and
+               improves pushing strength.</p>
+        </article>
+
+        <article class="card">
+            <span class="tag">Arms</span>
+            <h3>2. Biceps & Triceps</h3>
+            <h4>Exercises</h4>
+            <p>Biceps curls, hammer curls, triceps pushdowns,
+               and overhead extensions.</p>
+            <h4>How to do it</h4>
+            <p>Keep your elbows controlled near your body during
+               curls. Extend your arms smoothly during triceps
+               exercises without locking your joints forcefully.</p>
+            <h4>Benefits</h4>
+            <p>Develops arm strength and helps with lifting,
+               carrying, and other daily activities.</p>
+        </article>
+
+        <article class="card">
+            <span class="tag">Lower Body</span>
+            <h3>3. Leg Workout</h3>
+            <h4>Exercises</h4>
+            <p>Squats, lunges, leg press, hamstring curls,
+               and calf raises.</p>
+            <h4>How to do it</h4>
+            <p>Keep your feet stable, bend your knees comfortably,
+               and maintain balance. Start with bodyweight
+               movements before adding weights.</p>
+            <h4>Benefits</h4>
+            <p>Strengthens the legs and glutes and supports
+               balance, mobility, and everyday movement.</p>
+        </article>
+
+        <article class="card">
+            <span class="tag">Upper Body</span>
+            <h3>4. Shoulder Workout</h3>
+            <h4>Exercises</h4>
+            <p>Shoulder press, lateral raises, rear-delt fly,
+               and face pulls.</p>
+            <h4>How to do it</h4>
+            <p>Use light weights at first. Lift with control,
+               avoid swinging, and do not force painful
+               overhead movements.</p>
+            <h4>Benefits</h4>
+            <p>Builds shoulder strength and helps improve
+               controlled arm movements.</p>
+        </article>
+
+        <article class="card">
+            <span class="tag">Cardiovascular Fitness</span>
+            <h3>5. Cardio Workout</h3>
+            <h4>Exercises</h4>
+            <p>Brisk walking, cycling, treadmill jogging,
+               and elliptical training.</p>
+            <h4>How to do it</h4>
+            <p>Begin at a comfortable pace and increase
+               duration or intensity gradually. Choose an
+               activity that you enjoy and can maintain.</p>
+            <h4>Benefits</h4>
+            <p>Improves stamina, supports heart health,
+               and may help with stress management.</p>
+        </article>
+
+        <article class="card">
+            <span class="tag">Flexibility</span>
+            <h3>6. Yoga & Stretching</h3>
+            <h4>Exercises</h4>
+            <p>Cat-cow, child's pose, gentle hamstring stretches,
+               and downward-facing dog.</p>
+            <h4>How to do it</h4>
+            <p>Breathe slowly and move gently into each pose.
+               Never force a stretch or continue through pain.</p>
+            <h4>Benefits</h4>
+            <p>Can improve flexibility, balance, relaxation,
+               and body awareness.</p>
+        </article>
+
+        <article class="card">
+            <span class="tag">Core Strength</span>
+            <h3>7. Abs & Core Workout</h3>
+            <h4>Exercises</h4>
+            <p>Planks, dead bugs, bird dogs, and controlled crunches.</p>
+            <h4>How to do it</h4>
+            <p>Keep your trunk stable, breathe normally,
+               and focus on good form rather than rushing
+               through repetitions.</p>
+            <h4>Benefits</h4>
+            <p>Supports posture, balance, and stability.
+               Ab exercises alone do not specifically remove
+               belly fat.</p>
+        </article>
+
+        <article class="card">
+            <span class="tag">Recovery</span>
+            <h3>8. Rest & Recovery</h3>
+            <h4>Daily habits</h4>
+            <p>Get enough sleep, drink water, eat balanced meals,
+               and schedule rest days.</p>
+            <h4>How it helps</h4>
+            <p>Muscles adapt to exercise when training is combined
+               with adequate nutrition and recovery.</p>
+            <h4>Benefits</h4>
+            <p>Supports performance, energy, and consistency
+               in your fitness routine.</p>
+        </article>
+
+    </div>
+
+    <h2>Clean Diet Guide</h2>
+    <p>A balanced diet provides energy, protein, healthy fats,
+       vitamins, minerals, and fibre. You do not need to avoid
+       rice or chapati to eat healthily.</p>
+
+    <div class="cards">
+
+        <article class="card">
+            <h3>Protein-Rich Foods</h3>
+            <p><strong>Examples:</strong> Eggs, milk, curd, paneer,
+               tofu, dal, beans, chickpeas, and soy.</p>
+            <p><strong>Purpose:</strong> Protein helps repair
+               and build muscle when combined with appropriate
+               resistance training.</p>
+        </article>
+
+        <article class="card">
+            <h3>Carbohydrates for Energy</h3>
+            <p><strong>Examples:</strong> Rice, oats, chapati,
+               millets, potatoes, and fruit.</p>
+            <p><strong>Purpose:</strong> Carbohydrates provide
+               energy for workouts, studying, work, and daily
+               activities.</p>
+        </article>
+
+        <article class="card">
+            <h3>Healthy Fats</h3>
+            <p><strong>Examples:</strong> Nuts, seeds, peanuts,
+               and suitable cooking oils.</p>
+            <p><strong>Purpose:</strong> Healthy fats support
+               normal body functions and help absorb certain
+               vitamins.</p>
+        </article>
+
+        <article class="card">
+            <h3>Fruit & Vegetables</h3>
+            <p><strong>Examples:</strong> Bananas, oranges,
+               apples, leafy greens, carrots, and seasonal
+               vegetables.</p>
+            <p><strong>Purpose:</strong> Provide fibre, vitamins,
+               minerals, and variety in your meals.</p>
+        </article>
+
+    </div>
+
+    <h2>Diet Plans for Your Fitness Goal</h2>
+
+    <div class="cards">
+
+        <article class="card">
+            <h3>Muscle Gain</h3>
+            <p>Eat enough food to support training and recovery.
+               Include protein in regular meals and gradually
+               increase strength-training difficulty.</p>
+            <p><strong>Meal ideas:</strong> Oats with curd and
+               banana, eggs or paneer, rice with dal, and
+               vegetables with dinner.</p>
+        </article>
+
+        <article class="card">
+            <h3>Weight Loss</h3>
+            <p>Aim for a moderate calorie deficit while eating
+               enough protein and nutritious foods. Avoid crash
+               diets and skipping meals to compensate for eating.</p>
+            <p><strong>Meal ideas:</strong> Vegetable oats,
+               dal with rice and vegetables, fruit, curd,
+               and a protein-rich dinner.</p>
+        </article>
+
+        <article class="card">
+            <h3>Healthy Eating</h3>
+            <p>Choose a variety of foods and balance your
+               meals with vegetables, protein, carbohydrates,
+               and healthy fats.</p>
+            <p><strong>Meal ideas:</strong> Idli with sambar,
+               rice with dal and vegetables, fruit, nuts,
+               and curd or another protein source.</p>
+        </article>
+
+    </div>
+
+    <div class="note">
+        <h3>Daily Fitness Tips</h3>
+        <ul>
+            <li>Warm up for 5–10 minutes before challenging exercise.</li>
+            <li>Learn proper technique before increasing weights.</li>
+            <li>Drink water regularly throughout the day.</li>
+            <li>Most adults should aim for 7–9 hours of sleep.</li>
+            <li>Take rest when needed and avoid training through sharp pain.</li>
+            <li>Exercise can support mood and stress management,
+                alongside other healthy habits.</li>
+        </ul>
+    </div>
+
+</main>
+
+<footer>
+    <p>GymGo | Train Smart. Eat Well. Stay Consistent.</p>
+</footer>
+
+</body>
+</html>

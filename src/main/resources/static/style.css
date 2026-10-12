@@ -1,0 +1,229 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f8f7;
+    color: #17364a;
+}
+
+header {
+    background: #10344d;
+    color: white;
+    padding: 18px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    margin: 0;
+    color: #35d4b0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 8px;
+}
+
+section {
+    padding: 35px 7%;
+}
+
+.hero {
+    text-align: center;
+    background: #dff8f0;
+    padding: 70px 20px;
+}
+
+.hero h2 {
+    font-size: 36px;
+}
+
+.button, button {
+    background: #12ad91;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 12px 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form {
+    display: grid;
+    gap: 14px;
+    max-width: 450px;
+}
+
+input, select {
+    padding: 12px;
+    border: 1px solid #c8dadd;
+    border-radius: 6px;
+}
+
+#classList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 18px;
+}
+
+.class-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px #00000010;
+}
+
+footer {
+    background: #10344d;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero h2 {
+        font-size: 27px;
+    }
+}
+
+#fitness-profile {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 25px;
+    background: #ffffff;
+    color: #222222;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+#fitness-profile h2 {
+    text-align: center;
+}
+
+#profileForm label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+#profileForm input,
+#profileForm select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+}
+
+#profileForm button {
+    width: 100%;
+    padding: 12px;
+    background: #198754;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.fitness-profile {
+    max-width: 650px;
+    margin: 25px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+.fitness-profile h1 {
+    margin-bottom: 8px;
+    color: #222;
+    text-align: center;
+}
+
+.fitness-profile p {
+    text-align: center;
+    color: #666;
+}
+
+#fitnessProfileForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#fitnessProfileForm label {
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+#fitnessProfileForm input,
+#fitnessProfileForm select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    box-sizing: border-box;
+}
+
+#fitnessProfileForm button {
+    margin-top: 12px;
+    padding: 12px;
+    border: none;
+    border-radius: 7px;
+    background: #16a34a;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#fitnessProfileForm button:hover {
+    background: #15803d;
+}
+
+.fitness-progress {
+    max-width: 650px;
+    margin: 25px auto;
+    padding: 25px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+.fitness-progress form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fitness-progress input {
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+}
+
+.fitness-progress button {
+    padding: 12px;
+    margin-top: 8px;
+    background: #16a34a;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+#progressList li {
+    margin: 10px 0;
+}
+

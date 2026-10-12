@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymGo - Register</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .auth-container {
+            width: 90%;
+            max-width: 420px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #1c1c1c;
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px #0005;
+        }
+        .auth-container h1 {
+            text-align: center;
+            color: #a3e635;
+        }
+        .auth-container label {
+            display: block;
+            margin-top: 15px;
+        }
+        .auth-container input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin-top: 7px;
+            border: 1px solid #555;
+            border-radius: 7px;
+        }
+        .auth-container button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 22px;
+            background: #a3e635;
+            border: none;
+            border-radius: 7px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .auth-container p {
+            text-align: center;
+        }
+        .auth-container a {
+            color: #a3e635;
+        }
+        #message {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="auth-container">
+        <h1>GymGo</h1>
+        <h2>Create Your Account</h2>
+        <p>Start your fitness journey today!</p>
+
+        <form id="registerForm">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName"
+                   placeholder="Enter your full name"
+                   maxlength="100" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email"
+                   placeholder="Enter your email"
+                   maxlength="150" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password"
+                   placeholder="Create a password"
+                   minlength="8" maxlength="72" required>
+
+            <button type="submit">Create Account</button>
+            <p id="message" role="status" aria-live="polite"></p>
+        </form>
+
+        <p>Already have an account?
+            <a href="loginj.html">Sign In</a>
+        </p>
+
+        <p><a href="index.html">Back to Home</a></p>
+    </main>
+
+    <script>
+        document.getElementById("registerForm")
+            .addEventListener("submit", async function(event) {
+                event.preventDefault();
+
+                const message = document.getElementById("message");
+                const button = this.querySelector("button");
+
+                const fullName =
+                    document.getElementById("fullName").value.trim();
+                const email =
+                    document.getElementById("email").value.trim();
+                const password =
+                    document.getElementById("password").value;
+
+                if (password.length < 8 || password.length > 72) {
+                    message.textContent =
+                        "Password must contain 8 to 72 characters.";
+                    return;
+                }
+
+                button.disabled = true;
+                message.textContent = "Creating your account...";
+
+                try {
+                    const response = await fetch("/api/auth/register", {
+                        method: "POST",
+                        credentials: "same-origin",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            fullName: fullName,
+                            email: email,
+                            password: password
+                        })
+                    });
+
+                    const text = await response.text();
+
+					let data = {};
+					try {
+					    data = JSON.parse(text);
+					} catch (e) {
+					    data = { message: text };
+					}
+
+					console.log("Registration status:", response.status);
+					console.log("Registration response:", data);
+
+					if (!response.ok) {
+					    throw new Error(
+					        data.message || `Registration failed: HTTP ${response.status}`
+					    );
+					}
+
+                    if (!response.ok) {
+                        throw new Error(
+                            data.message || "Registration failed."
+                        );
+                    }
+
+                    message.textContent =
+                        "Registration successful! Redirecting to login...";
+
+                    this.reset();
+
+                    setTimeout(function() {
+                        window.location.href = "loginj.html";
+                    }, 1200);
+
+                } catch (error) {
+                    message.textContent = error.message ||
+                        "Unable to connect to the server.";
+                } finally {
+                    button.disabled = false;
+                }
+            });
+    </script>
+
+</body>
+</html>
